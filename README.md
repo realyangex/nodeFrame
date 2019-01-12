@@ -1,1 +1,1 @@
-a application with node
+a application with node（express+ejs）
