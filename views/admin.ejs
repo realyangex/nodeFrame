@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+        <title>供销交流平台</title>
+        <!-- 引入 FrozenUI -->
+        <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css"/>
+        <link rel="stylesheet" href="/public/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="/public/css/index.css"/>
+        <script type="text/javascript" src="/public/js/jquery.js"></script>
+        <script type="text/javascript" src="/public/js/admin.js"></script>
+        <script type="text/javascript" src="/public/js/common.js"></script>
+    </head>
+    <body>
+        <!-- <header class="ui-header ui-header-positive ui-border-b">
+            <i class="ui-icon-return" onclick="history.back()"></i><h1>基础样式 </h1><button class="ui-btn">回首页</button>
+        </header> -->
+        <section class="ui-container">
+		<div class="ui-tab ">
+		    <ul class="ui-tab-nav ui-border-b item">
+		        <li class="current "  type="1"><span>商品</span></li>
+		        <li  type="2"><span>需求</span></li>
+		    </ul>
+		    <div class="ui-tab-content" style="width:100%;position:absolute;">
+		    	<section class="ui-list ui-list-pure ui-border-b" style="background-color:#F2F2F2;" id="showSection">
+		    		<!-- <input type="" name="" style="width:90%;height:30px;margin-left:5%;border-radius:5px;"><span class="fa fa-search"></span></input> -->
+			    	<!-- <div class="contentBox" >
+			    		<div class="contentInnerBox"  >
+				    		<div class="headerContent"  >
+				    			<img src="http://img5.imgtn.bdimg.com/it/u=3143969158,466442953&fm=26&gp=0.jpg" class="pic">
+				    			<span class="username">会飞的鱼</span>
+				    			<span class="time" >2小时前</span>
+				    		</div>
+				    		<div class="contentText">有没有明天一起去看7点杨洋的生日会的小伙伴呀，看完一起回来，有的话联系我哟</div>
+					    	<div height:30px>
+					    		<span style="font-size:28px;">···</span>
+					    		<div class="fr">
+						    		<span class="fa fa-comment-o comment" ></span>
+						    		<span class="commentNum">15</span>
+					    		</div>
+					    	</div>
+				    	</div>
+			    	</div>
+			    	<div class="contentBox" >
+			    		<div class="contentInnerBox"  >
+				    		<div class="headerContent"  >
+				    			<img src="http://img5.imgtn.bdimg.com/it/u=3143969158,466442953&fm=26&gp=0.jpg" class="pic">
+				    			<span class="username">会飞的鱼</span>
+				    			<span class="time" >2小时前</span>
+				    		</div>
+				    		<div class="contentText">有没有明天一起去看7点杨洋的生日会的小伙伴呀，看完一起回来，有的话联系我哟</div>
+					    	<div height:30px>
+					    		<span style="font-size:28px;">···</span>
+					    		<div class="fr">
+						    		<span class="fa fa-comment-o comment" ></span>
+						    		<span class="commentNum">15</span>
+					    		</div>
+					    	</div>
+				    	</div>
+			    	</div>
+			    	<div class="contentBox" >
+			    		<div class="contentInnerBox"  >
+				    		<div class="headerContent"  >
+				    			<img src="http://img5.imgtn.bdimg.com/it/u=3143969158,466442953&fm=26&gp=0.jpg" class="pic">
+				    			<span class="username">会飞的鱼</span>
+				    			<span class="time" >2小时前</span>
+				    		</div>
+				    		<div class="contentText">有没有明天一起去看7点杨洋的生日会的小伙伴呀，看完一起回来，有的话联系我哟</div>
+					    	<div height:30px>
+					    		<span style="font-size:28px;">···</span>
+					    		<div class="fr">
+						    		<span class="fa fa-comment-o comment" ></span>
+						    		<span class="commentNum">15</span>
+					    		</div>
+					    	</div>
+				    	</div>
+			    	</div>
+			    	<div class="contentBox" >
+			    		<div class="contentInnerBox"  >
+				    		<div class="headerContent"  >
+				    			<img src="http://img5.imgtn.bdimg.com/it/u=3143969158,466442953&fm=26&gp=0.jpg" class="pic">
+				    			<span class="username">会飞的鱼</span>
+				    			<span class="time" >2小时前</span>
+				    		</div>
+				    		<div class="contentText">有没有明天一起去看7点杨洋的生日会的小伙伴呀，看完一起回来，有的话联系我哟</div>
+					    	<div height:30px>
+					    		<span style="font-size:28px;">···</span>
+					    		<div class="fr">
+						    		<span class="fa fa-comment-o comment" ></span>
+						    		<span class="commentNum">15</span>
+					    		</div>
+					    	</div>
+				    	</div>
+			    	</div> -->
+
+			    	<!-- 查看更多 -->
+			    	<!-- <div style="height:80px;padding:3px 0 6px 0;color:#1EA076;" id="showMore">
+			    		<center  >
+			    			<span style="">查看更多</span>
+			    			<span class="fa fa-angle-down"></span>
+			    		</center>
+			    	</div> -->
+		    	</section>
+				<div id="showTip" style="display:none">
+                    <div class="ui-dialog show">
+                        <div class="ui-dialog-cnt">
+                            <div class="ui-dialog-bd">
+                                 <p id="text">发布成功</p>
+                            </div>
+                            <div class="ui-dialog-ft">
+                                <button type="button" data-role="button" id="ok">确定</button>
+								<button type="button" data-role="button" id="cancel">取消</button>
+                            </div>
+                        </div> 
+                    </div> 
+                
+	        </div>
+		    </div>
+		</div>
+        </section>
+        <footer class="ui-footer ui-footer-btn">
+            <ul class="ui-tiled ui-border-t">
+                <li data-href="index.html" class="ui-border-r" ><a href="/"><div >首页</div></a></li>
+                <li data-href="ui.html" class="ui-border-r" ><a href="/need/add"><div style="color:#777777">发布需求</div></a></li>
+               <li data-href="/person"><a href="/person"><div style="color:#777777">我的</div></a></li>
+            </ul>
+        </footer>
+    </body>
+</html>

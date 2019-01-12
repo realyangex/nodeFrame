@@ -1,0 +1,33 @@
+.contentBox{
+	background-color:white;width:100%;margin-bottom:10px;
+}
+
+.contentInnerBox{
+	width:90%;min-height:150px;margin:0 auto;background-color:white;
+}
+
+.contentBox .headerContent{
+	height:50px;
+}
+.contentBox .headerContent .pic{
+	 border-radius:25px;height:50;width:50px;float:left; 
+}
+
+.contentBox .headerContent .username{
+	 float:left;margin:16px 0 0 6px;font-weight:bold;
+}
+.contentBox .headerContent .time{
+	 float:right;margin-top:10px;
+}
+.contentBox  .comment{
+	font-size:22px; color:#ccc;margin:6px 2px 0 0;
+}
+.contentBox .commentNum{
+	color:#ccc;margin:0 6px 0 0;
+}
+.contentBox .contentText{
+	width:100%;border-bottom:1px solid #ccc;padding:6px 0 10px 0
+}
+.fr{
+	 float:right; 
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+        <title>供销交流平台</title>
+        <!-- 引入 FrozenUI -->
+        <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css"/>
+        <link rel="stylesheet" href="/public/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="/public/js/jquery.js"></script>
+        <script type="text/javascript" src="/public/js/common.js"></script>
+    </head>
+    <body>
+		<!--
+        <header class="ui-header ui-header-positive ui-border-b">
+            <i class="ui-icon-return" onclick="history.back()" ></i>
+			<h1>内容详情</h1>
+        </header> 
+		-->
+		<div style="height:45px;width:100%;background-color:#18b4ed">
+		 <span class="fa fa-angle-left" onclick="back()" style="float:left;font-size:30px;line-height:45px;margin-left:10px;color:white"></span>
+		<center>
+		<h1 style="line-height:45px;color:white;display:inline" >内容详情</h1>
+		</center>
+		</div>
+       	<!-- <ul class="ui-list ui-list-single  ui-border-tb" style="border: none;background-color:#F2F2F2;"> -->
+	    <section class="ui-container"> 
+
+	       <div style="margin:10px 0 0 0;background-color:#fff;padding:10px 10px;min-height:100px;">
+			<%- data.content%>
+		   </div>
+		   <div style="margin:10px 10px;">
+		   
+			   <%if(data.file!=""){%>
+					<center>
+						<img src="/uploads/<%= data.file%>" style="width:100%;" ><br>
+					</center>
+			   <%}%>
+			   <span >类型:<% if(data.type==1){%>
+			   商品
+			   <%}else{%>
+			   需求
+			   <%}%>
+			   </span>
+			   <span>发布于 <%- data.date%></span>
+			   <span style="float:right">阅读量: <%- data.comment_num%></span>
+		   </div>
+        <!-- </ul> -->
+       </section>
+    </body>
+    <script type="text/javascript">
+    	function back(){
+			window.location.href='/';
+			//history.back()
+		}
+    </script>
+</html>

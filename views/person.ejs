@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+        <title>供销交流平台</title>
+        <!-- 引入 FrozenUI -->
+        <link rel="stylesheet" href="/public/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css"/>
+       <script type="text/javascript" src="/public/js/jquery.js"></script>
+       <script type="text/javascript" src="/public/js/common.js"></script>
+        
+    </head>
+    <body>
+        <div style="width:100%;background-color:#EBEBEB">
+            <div style="width:100%">
+            <center>
+                <img src="public/images/mn.jpg" style="width:80px;height:80px;border-radius:40px;margin:60px 0 10px 0">
+                <h2><b><%=name %></b></h2>
+            </center>
+            </div>
+            <div class="ui-row-flex ui-whitespace" style="margin:10px 0 10px 0;padding: 0 0 10px 0" >
+                <div class="ui-col ui-col"><center><i style="margin-left:50%">商品&nbsp;&nbsp;<span><%=type1Count %></span></i></center></div>
+                <div class="ui-col ui-col"><center>|</center></div>
+                <div class="ui-col ui-col"><center><i style="margin-right:50%">需求&nbsp;&nbsp;<span><%=type2Count %></span></i></center></div>
+           </div>
+
+        </div>
+       <ul class="ui-list ui-list-link ui-border-tb" style="width:100%;margin:10px 0 0 0">
+            <li id="changeInfo">
+                <div class="ui-list-thumb" style="margin-right:0px;width:40px">
+                    <span style="background-image:url('public/images/setup.png');background-size:32px 32px;margin:8px 0 0 0""></span>
+                </div>
+                <div class="ui-list-info ui-border-t">
+                    <h4 class="ui-nowrap">修改我的资料</h4>
+                </div>
+            </li>
+            <li id="aboutUs">
+                <div class="ui-list-thumb" style="margin-right:0px;width:40px">
+                    <span style="background-image:url('public/images/ab.png');background-size:32px 32px;margin:8px 0 0 0""></span>
+                </div>
+                <div class="ui-list-info ui-border-t">
+                    <h4 class="ui-nowrap">关于我们</h4>
+                </div>
+            </li>
+            <li id="advice">
+                <div class="ui-list-thumb" style="margin-right:0px;width:40px">
+                    <span style="background-image:url('public/images/advice.png');background-size:32px 32px;margin:8px 0 0 0"></span>
+                </div>
+                <div class="ui-list-info ui-border-t">
+                    <h4 class="ui-nowrap">意见反馈</h4>
+                </div>
+            </li>
+			<%if(userType=="1"){%>
+			<li onclick="window.location.href='/admin'">
+                <div class="ui-list-thumb" style="margin-right:0px;width:40px">
+                    <span style="background-image:url('public/images/advice.png');background-size:32px 32px;margin:8px 0 0 0"></span>
+                </div>
+                <div class="ui-list-info ui-border-t">
+                    <h4 class="ui-nowrap">内容管理</h4>
+                </div>
+            </li>
+			<%}%>
+        </ul>   
+        <center>
+            <button type="button" class="ui-btn ui-btn-danger"  style="width:90%;height:40px;margin:20px auto" id="exit">退出登录</button>
+        </center>
+        <div id="showTip">
+        </div>
+        <div style="height:30px"></div>
+        <footer class="ui-footer ui-footer-btn">
+            <ul class="ui-tiled ui-border-t">
+               <li data-href="index.html" class="ui-border-r" ><a href="/"><div style="color:#777777">首页</div></a></li>
+                <li data-href="ui.html" class="ui-border-r" ><a href="/need/add"><div style="color:#777777">发布需求</div></a></li>
+               <li data-href="/person"><a href="/person"><div >我的</div></a></li>
+            </ul>
+        </footer>
+    </body>
+    <script type="text/javascript">
+        $(function(){
+
+            $("#exit").click(function(){
+                    window.location.href="/person/exit";
+            })
+
+            //关于我们按钮点击事件
+            $("#aboutUs").click(function(){
+                   var html = '<div class="ui-dialog show">\
+                        <div class="ui-dialog-cnt">\
+                            <div class="ui-dialog-bd">\
+                                 <p>贵州丰羽科技版权所有</p>\
+                            </div>\
+                            <div class="ui-dialog-ft">\
+                                <button type="button" data-role="button" class="close">确定</button>\
+                            </div>\
+                        </div> \
+                    </div> ';
+                    $("#showTip").html(html);
+            });
+
+            //意见反馈按钮点击事件
+            $("#advice").click(function(){
+                   var html = '<div class="ui-dialog show">\
+                        <div class="ui-dialog-cnt">\
+                            <div class="ui-dialog-bd">\
+                                 <p>敬请期待</p>\
+                            </div>\
+                            <div class="ui-dialog-ft">\
+                                <button type="button" data-role="button" class="close">确定</button>\
+                            </div>\
+                        </div> \
+                    </div> ';
+                    $("#showTip").html(html);
+            })
+
+            //意见反馈按钮点击事件
+            $("#changeInfo").click(function(){
+                  window.location.href="/person/changeInfo";
+            })
+
+            $(document).on("click",".close",function(){
+                $("#showTip").html("");
+            })
+
+        })
+    </script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+        <title>供销交流平台</title>
+        <!-- 引入 FrozenUI -->
+        <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css"/>
+        <link rel="stylesheet" href="/public/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="/public/js/jquery.js"></script>
+        <script type="text/javascript" src="/public/js/common.js"></script>
+    </head>
+    <body>
+        <!-- <header class="ui-header ui-header-positive ui-border-b">
+            <i class="ui-icon-return" onclick="history.back()"></i><h1>基础样式 </h1><button class="ui-btn">回首页</button>
+        </header> -->
+       	<ul class="ui-list ui-list-single  ui-border-tb" style="border: none;background-color:#F2F2F2;"">
+	       	<form action="/need" method="post" id="needForm" enctype="multipart/form-data">
+	       		<li class="ui-border-t" style="margin:0;">
+	       			<div style="width: 99%;margin: 0 auto">
+	       				<textarea style="width:100%;padding: 6px;" rows="10" name="content" id="content"></textarea>
+	       			</div>
+	       		</li>
+	       		<center>
+		        	<li class="ui-border-t">
+				        <span>请选择内容的类型:</span>&nbsp;&nbsp;
+						<span>商品</span>
+				        <label class="ui-radio" for="type">
+				            <input type="radio" name="type" checked="true" value="商品">
+				        </label>
+				        <span>需求</span>
+				        <label class="ui-radio" for="type">
+				            <input type="radio" name="type"  value="需求">
+				        </label>
+				        
+				    </li>
+				    <li>	
+						<input type="file" accept="image/*" multiple style="display: none" id="selectBtn"  onchange="upload('#selectBtn', '#img');" name="img" >
+						<span>可上传图片:</span><button class="ui-btn ui-btn-primary" type="button" id="selectPic">选择图片 <span class="fa fa-camera"></span></button>
+					</li>
+					<li>
+						<img id="img" src="" style="width: 120px;display: none;">
+					</li>
+				    <li class="" style="margin:0;" >
+		       			<button class="ui-btn ui-btn-primary" type="button" style="margin-top:20px;width: 50%;height: 40px" id="putNeedBtn">立即发布</button>
+		       		</li>
+	       		</center>
+	        </form>
+
+	        <!-- 提示框 -->
+	        <div id="showTip">
+	        </div>
+	        
+
+	        <div style="height: 50px"></div>
+        </ul>
+        <footer class="ui-footer ui-footer-btn">
+            <ul class="ui-tiled ui-border-t">
+               <li data-href="index.html" class="ui-border-r" ><a href="/"><div style="color:#777777">首页</div></a></li>
+                <li data-href="ui.html" class="ui-border-r" ><a href="/need/add"><div >发布需求</div></a></li>
+               <li data-href="/person"><a href="/person"><div style="color:#777777">我的</div></a></li>
+            </ul>
+        </footer>
+    </body>
+    <script type="text/javascript">
+    	// 需要在完成渲染之前就加载 //显示图片
+    	function upload(c, d){
+			    	$c = document.querySelector(c),
+			        $d = document.querySelector(d),
+			        file = $c.files[0],
+			        reader = new FileReader();
+			    reader.readAsDataURL(file);
+			    reader.onload = function(e){
+			        $d.setAttribute("src", e.target.result);
+			        $(d).css("display", 'block');
+			    };
+			};
+    	$(function(){
+    		$("#selectPic").click(function(){
+    			$("#selectBtn").trigger('click');
+    		})
+
+    		//立即发布按钮点击事件
+    		$("#putNeedBtn").click(function(){
+
+    			var content = $("#content").val();
+    			if(content=="")
+    			{	
+    				var html = '\<div class="ui-dialog show">\
+    <div class="ui-dialog-cnt">\
+        <div class="ui-dialog-bd">\
+             <p>发布内容不能为空哦 </p>\
+        </div>\
+        <div class="ui-dialog-ft">\
+            <button type="button" data-role="button" id="tipBtn">确定</button>\
+        </div>\
+    </div>\
+</div>'
+    				$("#showTip").html(html)
+    				return;
+    			}
+    			$("#needForm").submit();
+    		})
+
+    		// 确定按钮点击关闭
+    		$(document).on("click",'#tipBtn',function(){
+    			$("#showTip").html("");
+    		})
+    	})
+    </script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+        <title>供销交流平台</title>
+        <!-- 引入 FrozenUI -->
+        <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css"/>
+        <link rel="stylesheet" href="/public/css/font-awesome.min.css"/>
+        <script type="text/javascript" src="/public/js/jquery.js"></script>
+        <script type="text/javascript" src="/public/js/common.js"></script>
+    </head>
+    <body>
+        <header class="ui-header ui-header-positive ui-border-b">
+            <i class="ui-icon-return" onclick="history.back()"></i><h1><%= title %> </h1> 
+        </header>
+       	<ul class="ui-list ui-list-single  ui-border-tb" style="border: none;background-color:#F2F2F2;"">
+	       	
+
+	        <!-- 提示框 -->
+	        <div id="showTip">
+	        	<% if(title=='登录提示') {%>
+	        		<div class="ui-dialog show">
+						<div class="ui-dialog-cnt">
+						    <div class="ui-dialog-bd">
+						         <p>您还没有登录，请先登录</p>
+						    </div>
+						    <div class="ui-dialog-ft">
+						        <button type="button" data-role="button" id="loginBtn">立即登录</button>
+						        <button type="button" data-role="button" id="cancelBtn">取消</button>
+						    </div>
+						</div> 
+					</div> 
+	        	<%}%>
+
+	        	<% if(title=='退出提示') {%>
+	        		<div class="ui-dialog show">
+						<div class="ui-dialog-cnt">
+						    <div class="ui-dialog-bd">
+						         <p>您已经成功退出</p>
+						    </div>
+						    <div class="ui-dialog-ft">
+						        <button type="button" data-role="button" class="backHome">确定</button>
+						    </div>
+						</div> 
+					</div> 
+	        	<%}%>
+
+                <% if(title=='发布成功') {%>
+                    <div class="ui-dialog show">
+                        <div class="ui-dialog-cnt">
+                            <div class="ui-dialog-bd">
+                                 <p>发布成功</p>
+                            </div>
+                            <div class="ui-dialog-ft">
+                                <button type="button" data-role="button" class="putDonw">确定</button>
+                            </div>
+                        </div> 
+                    </div> 
+                <%}%>
+	        </div>
+
+	        <div style="height: 50px"></div>
+        </ul>
+        <!-- <footer class="ui-footer ui-footer-btn">
+            <ul class="ui-tiled ui-border-t">
+               <li data-href="index.html" class="ui-border-r" ><a href="/"><div style="color:#777777">首页</div></a></li>
+                <li data-href="ui.html" class="ui-border-r" ><a href="/need"><div >发布需求</div></a></li>
+               <li data-href="/person"><a href="/person"><div style="color:#777777">我的</div></a></li>
+            </ul>
+        </footer> -->
+    </body>
+    <script type="text/javascript">
+    	$(function(){
+    		$("#selectPic").click(function(){
+    			$("#selectBtn").trigger('click');
+    		})	
+    			
+    		// 确定按钮点击关闭
+    		$(document).on("click",'#loginBtn',function(){
+    			window.location.href = "/person/login";
+    		})
+
+    		// 取消按钮点击关闭
+    		$(document).on("click",'#cancelBtn',function(){
+    			window.location.href = "/";
+    		})
+
+    		// 确定按钮点击关闭 返回主页
+            $(document).on("click",'.backHome',function(){
+                window.location.href = "/";
+            })
+            // 确定按钮点击关闭 返回主页
+    		$(document).on("click",'.putDonw',function(){
+    			window.location.href = "/";
+    		})
+    	})
+    </script>
+</html>
